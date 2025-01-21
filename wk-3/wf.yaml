@@ -1,0 +1,9 @@
+main:
+  steps:
+    - callApi:
+        call: http.get
+        args:
+          url: 'https://jsonplaceholder.typicode.com/todos/1'
+        result: todoResults
+    - returnResult:
+        return: '${todoResults.body}'
