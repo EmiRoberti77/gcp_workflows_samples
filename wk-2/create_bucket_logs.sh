@@ -1,0 +1,1 @@
+gsutil mb -p gketest-448214 -l us-west1 gs://emiwfbucket/
