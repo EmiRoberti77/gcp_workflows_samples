@@ -1,0 +1,17 @@
+main:
+  steps:
+    - logStart:
+        call: sys.log
+        args:
+          text: 'Workflow started'
+    - fetchWeather:
+        call: http.get
+        args:
+          url: 'https://api.open-meteo.com/v1/forecast?latitude=35&longitude=139&hourly=temperature_2m'
+        result: weatherResponse
+    - logResponse:
+        call: sys.log
+        args:
+          text: ${"Weather API response:" + weatherResponse.body}
+    - completed:
+        return: 'Workflow finished'
