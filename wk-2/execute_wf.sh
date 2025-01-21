@@ -1,1 +1,1 @@
-gcloud workflows execute emi_wf_sample_1 --location=us-west1
+gcloud workflows execute emi_wf_sample_2 --location=us-west1

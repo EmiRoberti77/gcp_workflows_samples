@@ -1,8 +1,16 @@
 main:
   steps:
-    - logStart:
+    - step1:
         call: sys.log
         args:
-          text: 'Workflow started'
+          text: 'step1'
+    - step2:
+        call: sys.log
+        args:
+          text: 'step2'
+    - step3:
+        call: sys.log
+        args:
+          text: 'step3'
     - completed:
         return: 'Workflow finished'
