@@ -1,0 +1,27 @@
+main:
+  steps:
+    - callApi:
+        call: http.get
+        args:
+          url: 'https://jsonplaceholder.typicode.com/comments'
+        result: apiResponse
+    - evaluateResponse:
+        switch:
+          - condition: ${len(apiResponse.body) > 0}
+            next: moreThanZero
+          - condition: ${len(apiResponse.body) == 0}
+            next: equalToZero
+    - moreThanZero:
+        call: sys.log
+        args:
+          text: 'List greater than 0'
+    - equalToZero:
+        call: sys.log
+        args:
+          text: 'List equal to 0'
+    - saveToLog:
+        call: sys.log
+        args:
+          text: 'Saving to log'
+    - workflowEnd:
+        return: 'Workflow finished'

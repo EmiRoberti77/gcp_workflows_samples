@@ -1,9 +1,11 @@
 main:
   steps:
     - callApi:
-        call: http.get
+        call:
+        args: 'https://jsonplaceholder.typicode.com/todos/1'
+    - logResponse:
+        call: sys.log
         args:
-          url: 'https://jsonplaceholder.typicode.com/todos/1'
-        result: todoResults
+          text: ${"API response:" callApi.body}
     - returnResult:
-        return: '${todoResults.body}'
+        return: ${callApi.body}

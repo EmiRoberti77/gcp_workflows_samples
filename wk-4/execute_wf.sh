@@ -1,0 +1,1 @@
+gcloud workflows execute emi_wf_sample_4 --location=us-west1
