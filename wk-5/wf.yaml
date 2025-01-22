@@ -1,0 +1,15 @@
+main:
+  params: [input]
+  steps:
+    - sendNotification:
+        parallel:
+          for:
+            value: notification
+            in: ${input.notification}
+            steps:
+              - notify:
+                  call: http.post
+                  args:
+                    url: 'https://jsonplaceholder.typicode.com/comments'
+                    body:
+                      notification: ${notification}

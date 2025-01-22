@@ -1,0 +1,1 @@
+gcloud workflows execute emi_wf_sample_5 --data='{"notification": [{"message": "Hello, user 1!"}, {"message": "Hello, user 2!"}]}' --location=us-west1
