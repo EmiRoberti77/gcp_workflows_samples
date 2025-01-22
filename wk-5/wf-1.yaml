@@ -1,0 +1,13 @@
+main:
+  params: [input]
+  steps:
+    - sendMessages:
+        parallel:
+          for:
+            value: messages
+            in: ${input.messages}
+            steps:
+              - logMessage:
+                  call: sys.log
+                  args:
+                    text: ${messages}

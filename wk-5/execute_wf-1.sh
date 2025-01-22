@@ -1,0 +1,1 @@
+gcloud workflows execute emi_wf_sample_5_1 --data='{"messages": [{"message": "ciao emi"}, {"message": "ciao ferrari"}]}' --location=us-west1
