@@ -1,0 +1,21 @@
+- randomgenFunction:
+    call: http.get
+    args:
+      url: https://us-central1-gketest-448214.cloudfunctions.net/randomgen
+    result: randomgenResult
+- multiplyFunction:
+    call: http.post
+    args:
+      url: https://us-central1-gketest-448214.cloudfunctions.net/multiply
+      body:
+        input: ${randomgenResult.body.random}
+    result: multiplyResult
+- logFunction:
+    call: http.get
+    args:
+      url: https://api.mathjs.org/v4/
+      query:
+        expr: ${"log("+ string(multiplyResult.body.multiplied)+ ")"}
+    result: logResult
+- returnResult:
+    return: ${logResult}
