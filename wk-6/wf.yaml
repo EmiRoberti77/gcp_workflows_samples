@@ -17,5 +17,14 @@
       query:
         expr: ${"log("+ string(multiplyResult.body.multiplied)+ ")"}
     result: logResult
+- floorFunction:
+    call: http.post
+    args:
+      url: https://floor-51152465653.us-west1.run.app
+      auth:
+        type: OIDC
+      body:
+        input: ${logResult.body}
+    result: floorResult
 - returnResult:
-    return: ${logResult}
+    return: ${floorResult}
